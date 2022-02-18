@@ -4,6 +4,15 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * Classe responsavel por representar uma entidade no banco
+ * 
+ * @author Marcelo
+ * @author Boaz
+ * @since 18/02/2022
+ * @version 0.0.1
+ *
+ */
 @Entity
 @Table(name = "tb_users")
 public class UserModel {
