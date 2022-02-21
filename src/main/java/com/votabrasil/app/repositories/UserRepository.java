@@ -5,6 +5,9 @@ import org.springframework.stereotype.Repository;
 
 import com.votabrasil.app.model.UserModel;
 
+/*
+ *  UserRepository herdando métodos de JpaRepository
+ */
 @Repository
 public interface UserRepository extends JpaRepository<UserModel, Long>{
 
