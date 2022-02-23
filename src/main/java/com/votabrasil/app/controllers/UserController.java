@@ -18,6 +18,16 @@ import org.springframework.web.server.ResponseStatusException;
 import com.votabrasil.app.model.UserModel;
 import com.votabrasil.app.repositories.UserRepository;
 
+/**
+ * Class controller of operations from User
+ * 
+ * @author Gabriel
+ * @author Raiza
+ * @author Boaz
+ * @since 23/02/2022
+ * @version 0.0.1
+ *
+ */
 @RestController
 @RequestMapping("/api/v1/users")
 public class UserController {
