@@ -1,6 +1,8 @@
 package com.votabrasil.app.model;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -22,7 +24,7 @@ public class CandidateModel {
 	private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long idCandidate;
 
 	// ADM generated
-	private CandidateType typePost;
+	private @Enumerated(EnumType.STRING) CandidateType typePost;
 	private String name;
 	private String cpf;
 	private String party;
