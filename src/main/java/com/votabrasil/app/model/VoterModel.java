@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
- * Class persistence of UserModel
+ * Class persistence of VoterModel
  * 
  * @author Marcelo
  * @author Boaz
@@ -16,11 +16,11 @@ import javax.persistence.Table;
  *
  */
 @Entity
-@Table(name = "tb_users")
-public class UserModel {
+@Table(name = "tb_voters")
+public class VoterModel {
 
 	// System generated
-	private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long idUser;
+	private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long idVoter;
 	
 	// User Generated
 	private String name;
@@ -28,32 +28,32 @@ public class UserModel {
 	private String password;
 	
 	// Constructors
-	public UserModel() {
+	public VoterModel() {
 		super();
 	}
 
-	public UserModel(String name, String email, String password) {
+	public VoterModel(String name, String email, String password) {
 		super();
 		this.name = name;
 		this.email = email;
 		this.password = password;
 	}
 
-	public UserModel(Long idUser, String name, String email, String password) {
+	public VoterModel(Long idVoter, String name, String email, String password) {
 		super();
-		this.idUser = idUser;
+		this.idVoter = idVoter;
 		this.name = name;
 		this.email = email;
 		this.password = password;
 	}
 
 	// Getters and Setters
-	public Long getIdUser() {
-		return idUser;
+	public Long getIdVoter() {
+		return idVoter;
 	}
 
-	public void setIdUser(Long idUser) {
-		this.idUser = idUser;
+	public void setIdVoter(Long idVoter) {
+		this.idVoter = idVoter;
 	}
 
 	public String getName() {

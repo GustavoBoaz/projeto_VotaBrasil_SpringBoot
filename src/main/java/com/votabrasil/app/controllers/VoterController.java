@@ -15,11 +15,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
-import com.votabrasil.app.model.UserModel;
-import com.votabrasil.app.repositories.UserRepository;
+import com.votabrasil.app.model.VoterModel;
+import com.votabrasil.app.repositories.VoterRepository;
 
 /**
- * Class controller of operations from User
+ * Class controller of operations from Voter
  * 
  * @author Gabriel
  * @author Raiza
@@ -29,19 +29,19 @@ import com.votabrasil.app.repositories.UserRepository;
  *
  */
 @RestController
-@RequestMapping("/api/v1/users")
-public class UserController {
+@RequestMapping("/api/v1/voters")
+public class VoterController {
 	
-	private @Autowired UserRepository repository;
+	private @Autowired VoterRepository repository;
 	
 	@GetMapping
-	public List<UserModel> getAll(){
+	public List<VoterModel> getAll(){
 		return repository.findAll();
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<UserModel> getById(@PathVariable(value = "id") Long idUser) {
-		return repository.findById(idUser)
+	public ResponseEntity<VoterModel> getById(@PathVariable(value = "id") Long idVoter) {
+		return repository.findById(idVoter)
 				.map(resp -> ResponseEntity.status(200).body(resp))
 				.orElseGet(() -> {
 					throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Id Não existe aqui Féra!");
@@ -49,14 +49,14 @@ public class UserController {
 	}
 	
 	@PostMapping
-	public ResponseEntity<UserModel> save(@RequestBody UserModel user) {
-		return ResponseEntity.status(201).body(repository.save(user));
+	public ResponseEntity<VoterModel> save(@RequestBody VoterModel voter) {
+		return ResponseEntity.status(201).body(repository.save(voter));
 	}
 	
 	@PutMapping
-	public ResponseEntity<UserModel> update(@RequestBody UserModel user) {
-		return repository.findById(user.getIdUser())
-				.map(resp -> ResponseEntity.status(200).body(repository.save(user)))
+	public ResponseEntity<VoterModel> update(@RequestBody VoterModel voter) {
+		return repository.findById(voter.getIdVoter())
+				.map(resp -> ResponseEntity.status(200).body(repository.save(voter)))
 				.orElseGet(() -> {
 					throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Id Não encontrado");
 				});
@@ -64,10 +64,10 @@ public class UserController {
 	
 	@SuppressWarnings("rawtypes")
 	@DeleteMapping("/{id}")
-	public ResponseEntity deleteById(@PathVariable(value = "id") Long idUser) {
-		return repository.findById(idUser)
+	public ResponseEntity deleteById(@PathVariable(value = "id") Long idVoter) {
+		return repository.findById(idVoter)
 				.map(resp -> {
-					repository.deleteById(idUser);
+					repository.deleteById(idVoter);
 					return ResponseEntity.status(204).build();
 				})
 				.orElseGet(() -> {
