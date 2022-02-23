@@ -5,7 +5,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
- * Classe responsavel por representar uma entidade no banco
+ * Class persistence of UserModel
  * 
  * @author Marcelo
  * @author Boaz
@@ -17,11 +17,35 @@ import javax.persistence.Table;
 @Table(name = "tb_users")
 public class UserModel {
 
+	// System generated
 	private @Id Long idUser;
+	
+	// User Generated
 	private String name;
 	private String email;
 	private String password;
+	
+	// Constructors
+	public UserModel() {
+		super();
+	}
 
+	public UserModel(String name, String email, String password) {
+		super();
+		this.name = name;
+		this.email = email;
+		this.password = password;
+	}
+
+	public UserModel(Long idUser, String name, String email, String password) {
+		super();
+		this.idUser = idUser;
+		this.name = name;
+		this.email = email;
+		this.password = password;
+	}
+
+	// Getters and Setters
 	public Long getIdUser() {
 		return idUser;
 	}
