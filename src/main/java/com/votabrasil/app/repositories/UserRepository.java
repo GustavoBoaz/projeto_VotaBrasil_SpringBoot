@@ -5,8 +5,12 @@ import org.springframework.stereotype.Repository;
 
 import com.votabrasil.app.model.UserModel;
 
-/*
- *  UserRepository herdando métodos de JpaRepository
+/**
+ * UserRepository responsible for CRUD operations on UserModel
+ * 
+ * @author Boaz
+ * @since 23/02/2022
+ * @version 1.0
  */
 @Repository
 public interface UserRepository extends JpaRepository<UserModel, Long>{
