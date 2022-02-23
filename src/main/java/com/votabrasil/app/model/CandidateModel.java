@@ -1,12 +1,19 @@
 package com.votabrasil.app.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
  * Class persistence of CandidateModel
@@ -29,6 +36,11 @@ public class CandidateModel {
 	private String cpf;
 	private String party;
 	private String photo;
+
+	// Relationship
+	@OneToMany(mappedBy = "candidate", cascade = CascadeType.REMOVE)
+	@JsonIgnoreProperties({"candidate"})
+	private List<PollingModel> votesReceived = new ArrayList<>();
 
 	// Constructors
 	public CandidateModel() {
@@ -102,6 +114,14 @@ public class CandidateModel {
 
 	public void setPhoto(String photo) {
 		this.photo = photo;
+	}
+
+	public List<PollingModel> getVotesReceived() {
+		return votesReceived;
+	}
+
+	public void setVotesReceived(List<PollingModel> votesReceived) {
+		this.votesReceived = votesReceived;
 	}
 
 	private static enum CandidateType {

@@ -1,10 +1,17 @@
 package com.votabrasil.app.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
  * Class persistence of VoterModel
@@ -21,13 +28,17 @@ public class VoterModel {
 
 	// System generated
 	private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long idVoter;
-	
+
 	// User Generated
 	private String name;
 	private String cpf;
 	private String email;
 	private String password;
-	
+
+	@OneToMany(mappedBy = "voter", cascade = CascadeType.REMOVE)
+	@JsonIgnoreProperties({"voter"})
+	private List<PollingModel> myPolls = new ArrayList<>();
+
 	// Constructors
 	public VoterModel() {
 		super();
@@ -40,7 +51,7 @@ public class VoterModel {
 		this.email = email;
 		this.password = password;
 	}
-	
+
 	public VoterModel(Long idVoter, String name, String cpf, String email, String password) {
 		super();
 		this.idVoter = idVoter;
@@ -50,7 +61,7 @@ public class VoterModel {
 		this.password = password;
 	}
 
-	// Getters and Setters	
+	// Getters and Setters
 	public Long getIdVoter() {
 		return idVoter;
 	}
@@ -89,6 +100,14 @@ public class VoterModel {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public List<PollingModel> getMyPolls() {
+		return myPolls;
+	}
+
+	public void setMyPolls(List<PollingModel> myPolls) {
+		this.myPolls = myPolls;
 	}
 
 }
