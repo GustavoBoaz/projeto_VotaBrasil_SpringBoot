@@ -24,6 +24,7 @@ public class VoterModel {
 	
 	// User Generated
 	private String name;
+	private String cpf;
 	private String email;
 	private String password;
 	
@@ -32,24 +33,34 @@ public class VoterModel {
 		super();
 	}
 
-	public VoterModel(String name, String email, String password) {
+	public VoterModel(String name, String cpf, String email, String password) {
 		super();
 		this.name = name;
+		this.cpf = cpf;
 		this.email = email;
 		this.password = password;
 	}
-
-	public VoterModel(Long idVoter, String name, String email, String password) {
+	
+	public VoterModel(Long idVoter, String name, String cpf, String email, String password) {
 		super();
 		this.idVoter = idVoter;
 		this.name = name;
+		this.cpf = cpf;
 		this.email = email;
 		this.password = password;
 	}
 
-	// Getters and Setters
+	// Getters and Setters	
 	public Long getIdVoter() {
 		return idVoter;
+	}
+
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
 	}
 
 	public void setIdVoter(Long idVoter) {
