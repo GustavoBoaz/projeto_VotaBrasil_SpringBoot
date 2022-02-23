@@ -24,8 +24,43 @@ public class CandidateModel {
 	// ADM generated
 	private CandidateType typePost;
 	private String name;
+	private String cpf;
 	private String party;
 	private String photo;
+
+	// Constructors
+	public CandidateModel() {
+		super();
+	}
+
+	public CandidateModel(CandidateType typePost, String name, String cpf, String party, String photo) {
+		super();
+		this.typePost = typePost;
+		this.name = name;
+		this.cpf = cpf;
+		this.party = party;
+		this.photo = photo;
+	}
+
+	public CandidateModel(Long idCandidate, CandidateType typePost, String name, String cpf, String party,
+			String photo) {
+		super();
+		this.idCandidate = idCandidate;
+		this.typePost = typePost;
+		this.name = name;
+		this.cpf = cpf;
+		this.party = party;
+		this.photo = photo;
+	}
+
+	// Getters and Setters
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
 
 	public Long getIdCandidate() {
 		return idCandidate;
