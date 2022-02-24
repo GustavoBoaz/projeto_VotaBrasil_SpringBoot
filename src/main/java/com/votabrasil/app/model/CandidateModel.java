@@ -35,6 +35,7 @@ public class CandidateModel {
 	private String name;
 	private String cpf;
 	private String party;
+	private String number;
 	private String photo;
 
 	// Relationship
@@ -47,23 +48,24 @@ public class CandidateModel {
 		super();
 	}
 
-	public CandidateModel(CandidateType typePost, String name, String cpf, String party, String photo) {
+	public CandidateModel(CandidateType typePost, String name, String cpf, String party, String number, String photo) {
 		super();
 		this.typePost = typePost;
 		this.name = name;
 		this.cpf = cpf;
 		this.party = party;
+		this.number = number;
 		this.photo = photo;
 	}
 
-	public CandidateModel(Long idCandidate, CandidateType typePost, String name, String cpf, String party,
-			String photo) {
+	public CandidateModel(Long idCandidate, CandidateType typePost, String name, String cpf, String party, String number, String photo) {
 		super();
 		this.idCandidate = idCandidate;
 		this.typePost = typePost;
 		this.name = name;
 		this.cpf = cpf;
 		this.party = party;
+		this.number = number;
 		this.photo = photo;
 	}
 
@@ -108,6 +110,14 @@ public class CandidateModel {
 		this.party = party;
 	}
 
+	public String getNumber() {
+		return number;
+	}
+
+	public void setNumber(String number) {
+		this.number = number;
+	}
+
 	public String getPhoto() {
 		return photo;
 	}
@@ -124,7 +134,7 @@ public class CandidateModel {
 		this.votesReceived = votesReceived;
 	}
 
-	private static enum CandidateType {
+	public static enum CandidateType {
 		PRESIDENTE, DEPUTADO_ESTADUAL, DEPUTADO_FEDERAL, SENADOR, GOVERNADOR
 	}
 

@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -32,10 +33,12 @@ public class PollingModel {
 	// Relationship
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JsonIgnoreProperties({"myPolls"})
+	@JoinColumn(name = "voter_id")
 	private VoterModel voter;
 
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JsonIgnoreProperties({"votesReceived"})
+	//@JsonIgnoreProperties({"votesReceived"})
+	@JoinColumn(name = "candidate_id")
 	private CandidateModel candidate;
 
 	// Getters and Setters

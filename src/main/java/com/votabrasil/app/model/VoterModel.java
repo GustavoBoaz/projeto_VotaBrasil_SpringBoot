@@ -35,6 +35,7 @@ public class VoterModel {
 	private String email;
 	private String password;
 
+	// Relationship
 	@OneToMany(mappedBy = "voter", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties({"voter"})
 	private List<PollingModel> myPolls = new ArrayList<>();
