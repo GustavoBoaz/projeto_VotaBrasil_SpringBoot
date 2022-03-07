@@ -3,6 +3,8 @@ package com.votabrasil.app.repositories;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 import com.votabrasil.app.model.VoterModel;
 
 /**
@@ -14,5 +16,13 @@ import com.votabrasil.app.model.VoterModel;
  */
 @Repository
 public interface VoterRepository extends JpaRepository<VoterModel, Long>{
+
+    /**
+     * find by email
+     * 
+     * @param email
+     * @return Optional<VoterModel>
+     */
+    Optional<VoterModel> findByEmail(String email);
 
 }
