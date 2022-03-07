@@ -1,5 +1,12 @@
 package com.votabrasil.app.dtos;
 
+/**
+ * Interface responsible for the credentials of the user.
+ * 
+ * @author Boaz
+ * @since 07/03/2022
+ * @version 1.0
+ */
 public class CredentialsDTO {
 
     private Long id;

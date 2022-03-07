@@ -5,6 +5,13 @@ import javax.validation.constraints.NotBlank;
 
 import org.hibernate.validator.constraints.br.CPF;
 
+/**
+ * Interface responsible for the validation register of the user.
+ * 
+ * @author Boaz
+ * @since 07/03/2022
+ * @version 1.0
+ */
 public class VoterRegisterDTO {
 
 	private @NotBlank String name;

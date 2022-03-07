@@ -3,6 +3,13 @@ package com.votabrasil.app.dtos;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
+/**
+ * Interface responsible for the validation of the credentials of the user.
+ * 
+ * @author Boaz
+ * @since 07/03/2022
+ * @version 1.0
+ */
 public class VoterLoginDTO {
 
     private @NotBlank @Email String email;
