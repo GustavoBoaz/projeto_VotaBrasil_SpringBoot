@@ -18,6 +18,18 @@ public class VoterRegisterDTO {
 	private @NotBlank @CPF String cpf;
 	private @NotBlank @Email String email;
 	private @NotBlank String password;
+	
+	public VoterRegisterDTO() {
+		super();
+	}
+
+	public VoterRegisterDTO(String name, String cpf, String email,String password) {
+		super();
+		this.name = name;
+		this.cpf = cpf;
+		this.email = email;
+		this.password = password;
+	}
 
 	public String getName() {
 		return this.name;
