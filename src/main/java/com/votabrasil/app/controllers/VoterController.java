@@ -45,7 +45,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 @RestController
 @RequestMapping("/api/v1/voters")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
-@Tag(name = "Resources voter", description = "Controller voter!")
+@Tag(name = "Controller voter BATATINHA", description = "Controller voter!")
 public class VoterController {
 	
 	private @Autowired VoterRepository repository;
